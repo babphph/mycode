@@ -1,0 +1,11 @@
+---
+- name: Remove a file from a Windows Machine
+  hosts: windows
+  #connection: winrm   # we already mapped this in our inventory
+
+tasks:
+    - name: Remove a file, if present
+      ansible.windows.win_file:
+        path: "C:\\Users\\{{ student }}\\Desktop\\nasa_apod.jpg"
+        state: absent
+
