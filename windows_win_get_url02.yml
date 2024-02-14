@@ -6,6 +6,6 @@
 tasks:
     - name: Remove a file, if present
       ansible.windows.win_file:
-        path: "C:\\Users\\{{ student }}\\Desktop\\nasa_apod.jpg"
+        path: "C:\\Users\\{{ ansible_user }}\\Desktop\\nasa_apod.jpg"
         state: absent
 
