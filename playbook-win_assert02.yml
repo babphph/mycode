@@ -1,0 +1,30 @@
+---
+- name: checkup on windows
+  hosts: windows
+  connection: winrm
+  gather_facts: true
+  
+  tasks:
+    - name: assert the OS family 
+      ansible.builtin.assert:
+        that: ansible_facts.os_family == "Windows"
+        fail_msg: "OS family appears incorrect"
+        success_msg: "OS family correct"
+
+    - name: assert the distribution of windows
+      ansible.builtin.assert:
+        that: ansible_facts.os_name == "Microsoft Windows Server 2022 Datacenter Evaluation"
+        fail_msg: "OS name appears incorrect"
+        success_msg: "OS name correct"
+
+    - name: assert the processors
+      ansible.builtin.assert:
+        that: ansible_facts.processor_vcpus >= 1
+        fail_msg: "bad performace"
+        success_msg: "ready to go"
+
+    - name: assert the uptime
+      ansible.builtin.assert:
+        that: ansible_facts.lastboot >= "2024-01-01 05:00:00"
+        fail_msg: "high uptime"
+        success_msg: "good"
