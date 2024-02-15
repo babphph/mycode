@@ -10,8 +10,8 @@
   tasks:
     - name: Add User
       ansible.windows.win_user:
-        name: "{{ item.name }}"
-        password: "{{ item.pass }}"
+        name: item.name
+        password: item.pass
         state: present
       loop: "{{ new_users }}"
 

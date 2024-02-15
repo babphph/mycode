@@ -1,13 +1,10 @@
 ---
-windows:
-  hosts:
-    server2022:
-  new_users:
- - name:alice
-   pass:3nterTHEm@trix
+new_users:
+- name:alice
+  pass:3nterTHEm@trix
 
- - name:bob
-   pass:OrchidColl3ct0r!
+- name:bob
+  pass:OrchidColl3ct0r!
 
- - name:charlie
-   pass:NoClicking.StayRightHere!
+- name:charlie
+  pass:NoClicking.StayRightHere!
