@@ -1,0 +1,15 @@
+---
+- name: touch a windows host   # JUST a name
+  hosts: windows         # group name from inventory
+  connection: winrm      # use to connect to windows host
+  gather_facts: true     # no facts needed
+  list_of_Apps:
+    - Firefox
+  tasks:
+
+    # CHOCOLATEY.CHOCOLATEY.WIN_CHOCOLATEY
+    - name: install multiple packages
+      chocolatey.chocolatey.win_chocolatey:
+        name: "{{list_of_Apps}}"
+        state: present
+
